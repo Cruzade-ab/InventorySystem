@@ -32,21 +32,21 @@ ipcMain.on('navigate-to-home', () => {
   console.log('Navigating to home page');
   const filePath = path.join(__dirname, 'views/home.html');
   console.log('Navigating to:', filePath);
-  win.loadFile(filePath);
+  window.loadFile(filePath);
 });
 
 ipcMain.on('navigate-to-inventory-add', () => {
   console.log('Navigating to Inventory Add page');
   const filePath = path.join(__dirname, 'views/agregarInventario.html');
   console.log('Navigating to:', filePath);
-  win.loadFile(filePath);
+  window.loadFile(filePath);
 });
 
 ipcMain.on('navigate-to-inventory-visualization', () => {
   console.log('Navigating to Inventory Visualization page');
   const filePath = path.join(__dirname, 'views/visualizarInventario.html');
   console.log('Navigating to:', filePath);
-  win.loadFile(filePath);
+  window.loadFile(filePath);
 });
 
 
