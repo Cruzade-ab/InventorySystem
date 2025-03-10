@@ -1,0 +1,27 @@
+{
+  "name": "inventorysystem",
+  "version": "1.0.0",
+  "main": "./src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "electron .",
+     "build:css": "postcss src/styles/style.css -o src/styles/output.css",
+  "watch:css": "postcss src/styles/style.css -o src/styles/output.css --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "electron": "^34.1.1",
+    "postcss": "^8.5.2",
+    "postcss-cli": "^11.0.0",
+    "postcss-loader": "^8.1.1",
+    "tailwindcss": "^3.4.1"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.8.1",
+    "sqlite3": "^5.1.7"
+  }
+}

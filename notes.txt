@@ -1,0 +1,11 @@
+File para mini notas de desarollo 
+=================================
+
+
+
+
+a- tailwind initialization comand
+-npm run watch:css
+-npm run build:css
+
+###
