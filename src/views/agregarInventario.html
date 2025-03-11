@@ -6,41 +6,43 @@
     <link rel="stylesheet" href="../../src/styles/output.css" />
     <title>Casa Corretjer</title>
 </head>
-<body>
-  <nav class="bg-gray-800 text-white p-4">
-    <div class="mx-auto flex justify-between items-center">
-      <button class="rounded-md bg-gray-800 px-3 py-2 text-xl font-medium" id="home">Inventario Casa Corretjer</button>
-      <ul class="flex space-x-6">
-        <li><button id="inventoryVisualization">Navegar Inventario</button></li>
-        <li><button id="inventoryAdd">Agregar al inventario</button></li>
-      </ul>
-    </div>
-  </nav>
+<body class="h-screen bg-gray-200 flex flex-col">
+        <!-- 
+            Encabezado
+          -->
 
-  <main class="">
-    
-    <!-- Selector -->
-    <div class="">
-      <h2>Slecciona una opcion</h2>
-      
-      <select id="Selector">
-        <option value="agregarLibro">
-          Agregar Libro
-        </option>
-        <option value="agregarCarta">
-          Agregar Carta
-        </option>
-      </select>
-    </div>
+          <header class="bg-gray-800 text-white flex items-center px-4 h-[60px]">
+              <h1 class="text-lg font-semibold"> Encabezado </h1>    
+          </header>
 
-    <!-- Secciones -->
-    <div id="seccionLibro">
-        <!-- Autores -->
-         
-         
-    </div>
+          <!-- 
+            Side Bar
+          --> 
+          <div class="flex flex-1 min-h-0">
+          <aside class="bg-gray-700 text-white p-4 w-[250px]">
+              <nav>
+                <ul class="space-y-2">
+                  <li><button id="home" class="block py-2 px-3 bg-gray-600 rounded">Agregar al inventario</button></li>
+                  <li><button id="inventoryVisualization" class="block py-2 px-3 bg-gray-600 rounded">Navegar Inventario</button></li>
+                  <li><button id="inventoryAdd" class="block py-2 px-3 bg-gray-600 rounded">Agregar al inventario</button></li>
 
-  </main>
-<script src="../utils/Navigation/navigationRenderer.js"></script>
+                </ul>
+              </nav>
+          </aside>
+
+          <main class="bg-white p-6 flex-1 min-h-0 overflow-auto">
+            
+          </main>
+
+          </div>
+          <footer class="bg-gray-900 text-white text-center p-2 h-[50px]">
+              @2025 Mi Applicacion
+          </footer>
+        
+   
+
+
+
+    <script src="../utils/Navigation/navigationRenderer.js"></script>
 </body>
 </html>
