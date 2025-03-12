@@ -1,6 +1,6 @@
 const { app, BrowserWindow, ipcMain } = require("electron");
 const path = require('path');
-const dbActions = require('./utils/DB/database');
+const { getAuthors, addAuthor } = require('../src/DB/autors');
 
 let window; 
 
@@ -51,16 +51,11 @@ ipcMain.on('navigate-to-inventory-visualization', () => {
 });
 
 
-// ## DB Autor Handles
+//## DB Autor Handles
 
-  // ipcMain.handle('get-autores', async () => {
-  // return new Promise((resolve, rejects) => {
-  //     dbActions.getAutores((err, rows) => (err ? rejects(err) : resolve(rows)));
-  // });
-  // });
+   ipcMain.handle('get-autores', async () => {
+   return new Promise((resolve, rejects) => {
+      getAuthors((err, rows) => (err ? rejects(err) : resolve(rows)));
+   });
+   });
 
-  // ipcMain.handle('add-autor', async (_, Autor) => {
-  // return new Promise((resolve, rejects) => {
-  //     dbActions.addAutor(Autor.name, Autor.nacionalidad, (err) => (err ? rejects(err) : resolve({ success: true })));
-  // });
-  // });

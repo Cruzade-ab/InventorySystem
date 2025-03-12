@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
       window.electron.ipcRenderer.send('navigate-to-home');
     });
   
-    document.getElementById('inventoryAdd').addEventListener('click', () => {
+    document.getElementById('inventoryAdd').addEventListener('click', async () => {
         console.log("Navigating to inventory add");
         window.electron.ipcRenderer.send('navigate-to-inventory-add'); 
     });

@@ -10,9 +10,5 @@ console.log("defaultSeccion", selectedValue)
     document.querySelectorAll('.section').forEach(section => {
         section.classList.add('hidden');
     });
-
-
-
-
     document.getElementById(selectedValue).classList.remove('hidden');
 })

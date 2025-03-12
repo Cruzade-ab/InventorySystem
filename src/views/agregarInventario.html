@@ -13,8 +13,16 @@
             Encabezado
           -->
 
-  <header class="bg-gray-800 text-white flex items-center px-4 h-[60px]">
-    <h1 class="text-lg font-semibold"> Encabezado </h1>
+  <header class="bg-gray-800 text-white flex items-center justify-between px-4 h-[60px]">
+    <h1 class="text-lg font-semibold"> Inventario Museo Biblioteca Juan Antonio Corretjer</h1>
+    <select id="sectionSelector" class="block w-40 p-2 text-white bg-gray-300 border border-gray-300 rounded-md shadow-sm"> 
+      <option value="seccionLibro">
+        Agregar Libro
+      </option>
+      <option value="seccionCartas">
+        Agregar Carta
+      </option>
+    </select>
   </header>
 
   <!-- 
@@ -24,7 +32,7 @@
     <aside class="bg-gray-700 text-white p-4 w-[250px]">
       <nav>
         <ul class="space-y-2">
-          <li><button id="home" class="block py-2 px-3 bg-gray-600 rounded">Agregar al inventario</button></li>
+          <li><button id="home" class="block py-2 px-3 bg-gray-600 rounded"> Pagina Principal </button></li>
           <li><button id="inventoryVisualization" class="block py-2 px-3 bg-gray-600 rounded">Navegar
               Inventario</button></li>
           <li><button id="inventoryAdd" class="block py-2 px-3 bg-gray-600 rounded">Agregar al inventario</button></li>
@@ -36,24 +44,19 @@
     <main class="bg-white p-3 flex-1 min-h-0 overflow-none">
 
                                                                                     <!-- // focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 -->
-      <select id="sectionSelector" class="block w-40  text-white bg-gray-600 border border-gray-300 rounded-md shadow-sm"> 
-        <option value="seccionLibro">
-          Agregar Libro
-        </option>
-        <option value="seccionCartas">
-          Agregar Carta
-        </option>
-      </select>
+      
 
       <!-- Secciones -->
-      <div id="seccionLibro" class="section hidden flex-1 grid grid-cols-[1fr_2fr]  bg-gray-200 min-h-full overflow-auto ">
-        <div class="bg-gray-600 flex flex-col items-center text-white">
+      <div id="seccionLibro" class="section hidden flex-1 grid grid-cols-[1fr_2fr] min-h-full overflow-auto ">
+        <div class="bg-gray-600 flex flex-col items-center ">
 
           <!-- Autor Section -->
           <div class="mt-3">
-            <h2> Autores </h2>
+            <h2> Autores en la Base de Datos </h2>
 
+            <input type="text" id="searchInput" placeholder="Buscar Autores" />
             
+            <ul id="authorsList"></ul>
 
           </div>
         </div>
@@ -68,16 +71,13 @@
     </main>
 
   </div>
-  <footer class="bg-gray-900 text-white text-center p-2 h-[50px]">
-    @2025 Mi Applicacion
-  </footer>
+  
 
 
 
-
-
-  <script src="../utils/Global/navigationRenderer.js"></script>
-  <script src="../utils/AddInventory/sectionNavegation.js"></script>
+  <script src="../renderer/navegation/navigationRenderer.js"></script>
+  <script src="../renderer/navegation/sectionNavegation.js"></script>
+  <script src="../renderer//addInventory/autorsInventory.js"></script>
 </body>
 
 </html>

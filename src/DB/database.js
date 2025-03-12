@@ -37,11 +37,4 @@ db.all(`SELECT name FROM sqlite_master WHERE type='table'`, [], (err,rows) => {
     console.log("DB :", rows.map(row => row.name))
 })
 
-
-// dbActions para autores
-const dbActions = {
-    getAutores: (callback)=> db.all(`Select * FROM Autor`, [], callback),
-    addAutor: (Nombre, Nacionalidad, callback) => db.run('INSERT INTO Autor (Nombre, Nacionalidad) VALUES (?,?)', [Nombre, Nacionalidad], callback)
-}
-
-module.exports = dbActions
+module.exports = db;
