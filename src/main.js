@@ -1,6 +1,6 @@
 const { app, BrowserWindow, ipcMain } = require("electron");
 const path = require('path');
-const { getAuthors, addAuthor } = require('../src/DB/autors');
+const { getAutores } = require('../src/DB/autors');
 
 let window; 
 
@@ -55,7 +55,7 @@ ipcMain.on('navigate-to-inventory-visualization', () => {
 
    ipcMain.handle('get-autores', async () => {
    return new Promise((resolve, rejects) => {
-      getAuthors((err, rows) => (err ? rejects(err) : resolve(rows)));
+    getAutores((err, rows) => (err ? rejects(err) : resolve(rows)));
    });
    });
 

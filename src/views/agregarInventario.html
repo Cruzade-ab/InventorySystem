@@ -49,19 +49,30 @@
       <!-- Secciones -->
       <div id="seccionLibro" class="section hidden flex-1 grid grid-cols-[1fr_2fr] min-h-full overflow-auto ">
         <div class="bg-gray-600 flex flex-col items-center ">
-
           <!-- Autor Section -->
           <div class="mt-3">
             <h2> Autores en la Base de Datos </h2>
-
             <input type="text" id="searchInput" placeholder="Buscar Autores" />
-            
-            <ul id="authorsList"></ul>
-
+            <ul id="authorsList" class="border border-2"></ul>
           </div>
+
+          <hr>
+
+          <!-- Create Autor -->
+          <div class="">
+            <form>
+              <input type="text" placeholder="Nombre" id="nombre">
+              <input type="text" placeholder="Nacionalidad" id="nacionalidad">
+              <input type="text" placeholder="Natalicio" id="natalicio">
+              <input type="text" placeholder="Fallecimiento" id="fallecimiento">
+              <button type="submit"> </button>
+            </form>
+          </div>
+
+
         </div>
         <div class="bg-gray-800 h-full flex items-center justify-center text-white">
-            📚 Columna Grande (2fr)
+            
         </div>
     </div>
 
