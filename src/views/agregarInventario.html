@@ -44,32 +44,56 @@
     <main class="bg-white p-3 flex-1 min-h-0 overflow-none">
 
                                                                                     <!-- // focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 -->
-      
-
+  
       <!-- Secciones -->
       <div id="seccionLibro" class="section hidden flex-1 grid grid-cols-[1fr_2fr] min-h-full overflow-auto ">
         <div class="bg-gray-600 flex flex-col items-center ">
-          <!-- Autor Section -->
+          <!-- Search/Select Autor Section -->
           <div class="mt-3">
             <h2> Autores en la Base de Datos </h2>
             <input type="text" id="searchInput" placeholder="Buscar Autores" />
             <ul id="authorsList" class="border border-2"></ul>
           </div>
 
-          <hr>
+          <!-- Create Autor Section -->
+          
+          <div class="mt-18">
+            <button id="openAuthorModalBtn" class="bg-blue-600 px-4 py-2 rounded">
+              Crear Autor
+            </button>
 
-          <!-- Create Autor -->
-          <div class="">
-            <form>
-              <input type="text" placeholder="Nombre" id="nombre">
-              <input type="text" placeholder="Nacionalidad" id="nacionalidad">
-              <input type="text" placeholder="Natalicio" id="natalicio">
-              <input type="text" placeholder="Fallecimiento" id="fallecimiento">
-              <button type="submit"> </button>
-            </form>
+            <!-- Create Autor -->
+          <div id="authorModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+            <div class="bg-white rounded-lg p-6 w-full max-w-md relative">
+                <button id="closeAuthorModalBtn" class="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-xl font-bold"> Cerrar</button> 
+                <h2 class="text-xl font-semibold mb-4"> </h2>
+                <form id="authorForm" class="space-y-4">
+                  <div>
+                    <label for="nombre" class="block text-sm font-medium">Nombre: </label>
+                    <input type="text" placeholder="Nombre" name="nombre" class="w-full border border-gray-300 rounded px-3 py-2 mt-1">
+                  </div>
+                  <div>
+                    <label for="nacionalidad" class="block text-sm font-medium">Nacionalidad: </label>
+                    <input type="text" placeholder="Nacionalidad" name="nacionalidad" class="w-full border border-gray-300 rounded px-3 py-2 mt-1">
+                  </div>
+                  <div>
+                    <label for="natalicio" class="block text-sm font-medium">Natalicio: </label>
+                    <input type="text" placeholder="Natalicio" name="natalicio" class="w-full border border-gray-300 rounded px-3 py-2 mt-1">
+                  </div>
+                  <div>
+                    <label for="nombre" class="block text-sm font-medium">Fallecimiento: </label>
+                    <input type="text" placeholder="Fallecimiento" name="fallecimiento" class="w-full border border-gray-300 rounded px-3 py-2 mt-1">
+                  </div>
+                  
+                  <div class="flex justify-end">
+                    <button type="submit" class="bg-green-600 px-4 py-2 rounded">Enviar</button>
+                  </div>
+                </form>
+            </div>
           </div>
 
 
+          </div>
         </div>
         <div class="bg-gray-800 h-full flex items-center justify-center text-white">
             
@@ -89,6 +113,7 @@
   <script src="../renderer/navegation/navigationRenderer.js"></script>
   <script src="../renderer/navegation/sectionNavegation.js"></script>
   <script src="../renderer//addInventory/autorsInventory.js"></script>
+  <script src="../renderer//addInventory/autorModal.js"></script>
 </body>
 
 </html>
