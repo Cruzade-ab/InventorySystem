@@ -1,4 +1,3 @@
-
 const openAuthorModalBtn = document.getElementById("openAuthorModalBtn");
 const closeAuthorModalBtn = document.getElementById("closeAuthorModalBtn");
 const authorModal = document.getElementById("authorModal");
@@ -19,7 +18,7 @@ authorModal.addEventListener('click', (e) => {
     }
 })
 
-autorForm.addEventListener('submit', (e) => {
+autorForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     
     const nombre = autorForm.nombre.value.trim();
@@ -27,16 +26,24 @@ autorForm.addEventListener('submit', (e) => {
     const natalicio = autorForm.natalicio.value.trim();
     const fallecimiento = autorForm.fallecimiento.value.trim();
 
-    ipcRenderer.send('create-author', {
-        nombre,
-        nacionalidad,
-        natalicio,
-        fallecimiento
-    });
+    try {
+        const result = await window.api.createAuthor({
+            nombre,
+            nacionalidad,
+            natalicio,
+            fallecimiento
+        });
 
-    autorForm.reset();
-    authorModal.classList.add("hidden");
+        console.log(result); // Maybe show a success toast here
+
+        autorForm.reset();
+        authorModal.classList.add("hidden");
+    } catch (error) {
+        console.error('Error creating author:', error);
+        // You could show an error toast here
+    }
 });
+
 
 
 

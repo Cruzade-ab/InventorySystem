@@ -10,5 +10,5 @@ contextBridge.exposeInMainWorld('electron', {
 
 contextBridge.exposeInMainWorld('api', {
     getAutores: () => ipcRenderer.invoke('get-autores'),
-    addAutor: (autor) => ipcRenderer.invoke('add-autor', autor)
+    createAuthor: (autorData) => ipcRenderer.invoke('create-author', autorData)
 })

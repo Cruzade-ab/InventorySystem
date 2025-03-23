@@ -1,12 +1,18 @@
 let autoresArray = [];
 let selectedAuthors = [];
 
-
-window.api.getAutores().then(authors => {
-  console.log("Fetched Authors:", authors);
-  autoresArray = authors; 
-  displayAuthors(autoresArray); 
+window.api.getAutores().then(response => {
+  if (response.success) {
+    console.log("Fetched Authors:", response.data);
+    autoresArray = response.data;
+    displayAuthors(autoresArray);
+  } else {
+    console.error("Failed to fetch authors:", response.message);
+  }
+}).catch(err => {
+  console.error("Unexpected error:", err);
 });
+
 
 // Display authors in the UI
 function displayAuthors(authors) {
@@ -35,7 +41,7 @@ document.getElementById('searchInput').addEventListener('input', (event) => {
 // Select or deselect an author
 function selectAuthor(index) {
   const author = autoresArray[index];
-
+  
   const exists = selectedAuthors.find(a => a.name === author.name);
   
   if (exists) {

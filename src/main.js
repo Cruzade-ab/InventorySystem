@@ -1,6 +1,6 @@
 const { app, BrowserWindow, ipcMain } = require("electron");
 const path = require('path');
-const { getAutores } = require('../src/DB/autors');
+const { getAutores , createAuthor} = require('../src/DB/autors');
 
 let window; 
 
@@ -53,9 +53,28 @@ ipcMain.on('navigate-to-inventory-visualization', () => {
 
 //## DB Autor Handles
 
-   ipcMain.handle('get-autores', async () => {
-   return new Promise((resolve, rejects) => {
-    getAutores((err, rows) => (err ? rejects(err) : resolve(rows)));
-   });
-   });
+ipcMain.handle('get-autores', async () => {
+  console.log('Fetching authors from database...');
+  return new Promise((resolve) => {
+    getAutores((err, rows) => {
+      if (err) {
+        console.error('Error fetching authors:', err);
+        resolve({ success: false, message: err.message });
+      } else {
+        console.log('Fetched authors:', rows);
+        resolve({ success: true, data: rows });
+      }
+    });
+  });
+});
+
+ipcMain.handle('create-author', async (event, authorData) => {
+  try {
+      const savedAuthor = await createAuthor(authorData);
+      return { success: true, data: savedAuthor };
+  } catch (err) {
+      return { success: false, message: err.message };
+  }
+});
+
 
