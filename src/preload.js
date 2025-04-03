@@ -1,4 +1,5 @@
 const {contextBridge, ipcRenderer} = require('electron');
+const dataStore = require('./DB/dataStorage');
 
 contextBridge.exposeInMainWorld('electron', {
     ipcRenderer: {
@@ -8,7 +9,22 @@ contextBridge.exposeInMainWorld('electron', {
       }
 });
 
+// Expose DB methods (IPC -> Main Process -> SQLite)
 contextBridge.exposeInMainWorld('api', {
-    getAutores: () => ipcRenderer.invoke('get-autores'),
-    createAuthor: (autorData) => ipcRenderer.invoke('create-author', autorData)
-})
+    db: {
+      getAuthorsFromDB: () => ipcRenderer.invoke('get-autores'),
+      createAuthor: (authorData) => ipcRenderer.invoke('create-author', authorData)
+    },
+  
+    // Expose local cache (memory)
+    store: {
+      getAuthors: () => dataStore.getAuthors(),
+      setAuthors: (authors) => dataStore.setAuthors(authors),
+      refreshAuthors: async () => {
+        const authors = await ipcRenderer.invoke('get-autores');
+        console.log("[Preload]: ", authors)
+        dataStore.setAuthors(authors);
+        return authors;
+      }
+    }
+  });

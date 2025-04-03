@@ -1,5 +1,7 @@
+// Al renderizar define esta como la seccion Principal
 const defaultSection = 'seccionLibro';
-console.log("defaultSeccion", defaultSection)
+
+console.log("Seccion Mostrandose", defaultSection)
 document.getElementById(defaultSection).classList.remove('hidden');
 
 document.getElementById('sectionSelector').addEventListener('change', function(){

@@ -13,7 +13,8 @@ const createWindow = () => {
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: false, 
-      contextIsolation: true     }
+      contextIsolation: true,
+      sandbox: false     }
   });
   
   window.loadFile(path.join(__dirname, 'views/home.html'));
@@ -32,21 +33,18 @@ app.whenReady().then(() => {
 ipcMain.on('navigate-to-home', () => {
   console.log('Navigating to home page');
   const filePath = path.join(__dirname, 'views/home.html');
-  console.log('Navigating to:', filePath);
   window.loadFile(filePath);
 });
 
-ipcMain.on('navigate-to-inventory-add', () => {
-  console.log('Navigating to Inventory Add page');
-  const filePath = path.join(__dirname, 'views/agregarInventario.html');
-  console.log('Navigating to:', filePath);
+ipcMain.on('navigate-to-inventory-management', () => {
+  console.log('Navigating to Inventory management page');
+  const filePath = path.join(__dirname, 'views/inventoryManagement.html');
   window.loadFile(filePath);
 });
 
 ipcMain.on('navigate-to-inventory-visualization', () => {
   console.log('Navigating to Inventory Visualization page');
   const filePath = path.join(__dirname, 'views/visualizarInventario.html');
-  console.log('Navigating to:', filePath);
   window.loadFile(filePath);
 });
 
@@ -55,18 +53,16 @@ ipcMain.on('navigate-to-inventory-visualization', () => {
 
 ipcMain.handle('get-autores', async () => {
   console.log('Fetching authors from database...');
-  return new Promise((resolve) => {
-    getAutores((err, rows) => {
-      if (err) {
-        console.error('Error fetching authors:', err);
-        resolve({ success: false, message: err.message });
-      } else {
-        console.log('Fetched authors:', rows);
-        resolve({ success: true, data: rows });
-      }
-    });
-  });
+  try {
+    const rows = await getAutores(); 
+    console.log('Fetched authors:', rows);
+    return { success: true, data: rows };
+  } catch (err) {
+    console.error('Error fetching authors:', err);
+    return { success: false, message: err.message };
+  }
 });
+
 
 ipcMain.handle('create-author', async (event, authorData) => {
   try {

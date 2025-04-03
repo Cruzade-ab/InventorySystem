@@ -1,54 +1,61 @@
-let autoresArray = [];
-let selectedAuthors = [];
+// let allAuthors = [];
+// let filteredAuthors = [];
+// let selectedAuthors = [];
 
-window.api.getAutores().then(response => {
-  if (response.success) {
-    console.log("Fetched Authors:", response.data);
-    autoresArray = response.data;
-    displayAuthors(autoresArray);
-  } else {
-    console.error("Failed to fetch authors:", response.message);
-  }
-}).catch(err => {
-  console.error("Unexpected error:", err);
-});
+// window.addEventListener('DOMContentLoaded', () => {
+//   loadAuthors();
+// });
+
+// async function loadAuthors() {
+//   const result = await window.api.store.refreshAuthors();
+//   allAuthors = result || [];
+//   filteredAuthors = allAuthors;
+//   displayAuthors(filteredAuthors);
+// }
 
 
-// Display authors in the UI
-function displayAuthors(authors) {
-  const authorsList = document.getElementById('authorsList');
-  authorsList.innerHTML = authors.map((author, index) =>
-    `<li data-index="${index}" onclick="selectAuthor(${index})">
-      ${author.name} - ${author.country}
-    </li>`
-  ).join('');
-}
+// function filterAuthors(query) {
+//   query = query.toLowerCase();
 
-// Search functionality
-document.getElementById('searchInput').addEventListener('input', (event) => {
-  const query = event.target.value.toLowerCase();
-  console.log("Search Query:", query); 
-  
-  const filteredAuthors = autoresArray.filter(author =>
-    author.name.toLowerCase().includes(query) || 
-    author.country.toLowerCase().includes(query)
-  );
+//   return allAuthors.filter(author =>
+//     author.name.toLowerCase().includes(query) ||
+//     author.country.toLowerCase().includes(query)
+//   );
+// }
 
-  console.log("Filtered List:", filteredAuthors);
-  displayAuthors(filteredAuthors);
-});
 
-// Select or deselect an author
-function selectAuthor(index) {
-  const author = autoresArray[index];
-  
-  const exists = selectedAuthors.find(a => a.name === author.name);
-  
-  if (exists) {
-    selectedAuthors = selectedAuthors.filter(a => a.name !== author.name); 
-  } else {
-    selectedAuthors.push(author); 
-  }
+// document.getElementById('searchInput').addEventListener('input', (event) => {
+//   const query = event.target.value;
+//   filteredAuthors = filterAuthors(query);
+//   displayAuthors(filteredAuthors);
+// });
 
-  console.log("Selected Authors:", selectedAuthors);
-}
+
+// function displayAuthors(authors) {
+//   const authorsList = document.getElementById('authorsList');
+//   authorsList.innerHTML = authors.map((author) =>
+//     `<li data-id="${author.id}" class="author-item">
+//       ${author.name} - ${author.country}
+//     </li>`
+//   ).join('');
+
+//   document.querySelectorAll('.author-item').forEach(li => {
+//     li.addEventListener('click', () => {
+//       const id = parseInt(li.dataset.id);
+//       toggleAuthorSelection(id);
+//     });
+//   });
+// }
+
+// function toggleAuthorSelection(authorId) {
+//   const author = allAuthors.find(a => a.id === authorId);
+//   const exists = selectedAuthors.some(a => a.id === author.id);
+
+//   if (exists) {
+//     selectedAuthors = selectedAuthors.filter(a => a.id !== author.id);
+//   } else {
+//     selectedAuthors.push(author);
+//   }
+
+//   console.log("Selected Authors:", selectedAuthors);
+// }
