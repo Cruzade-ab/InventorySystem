@@ -6,36 +6,53 @@
     <link rel="stylesheet" href="../../src/styles/output.css" />
     <title>Casa Corretjer</title>
 </head>
-<body class="h-screen bg-gray-200 flex flex-col">
-        <!-- 
-            Encabezado
-          -->
-
-          <header class="bg-gray-800 text-white flex items-center px-4 h-[60px]">
-              <h1 class="text-lg font-semibold"> Inventario Museo Biblioteca Juan Antonio Corretjer </h1>    
-          </header>
-
-          <!-- 
-            Side Bar
-          --> 
+<body class="h-screen bg-gray-200 flex flex-col ">
           <div class="flex flex-1 min-h-0">
-          <aside class="bg-gray-700 text-white p-4 w-[250px]">
-              <nav>
-                <ul class="space-y-2">
-                  <li><button id="home" class="block py-2 px-3 bg-gray-600 rounded">Pagina Principal</button></li>
-                  <li><button id="inventoryVisualization" class="block py-2 px-3 bg-gray-600 rounded">Navegar Inventario</button></li>
-                  <li><button id="inventoryAdd" class="block py-2 px-3 bg-gray-600 rounded">Agregar al inventario</button></li>
+            <aside class="bg-blue-950 text-white p-4 w-[250px] flex flex-col justify-start items-center">
+                <h2 class="flex items-center w-full gap-2 text-xl">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20" class="w-7 h-7 text-orange-600">
+                    <path d="M2 3a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H2Z" />
+                    <path fill-rule="evenodd" d="M2 7.5h16l-.811 7.71a2 2 0 0 1-1.99 1.79H4.802a2 2 0 0 1-1.99-1.79L2 7.5ZM7 11a1 1 0 0 1 1-1h4a1 1 0 1 1 0 2H8a1 1 0 0 1-1-1Z" clip-rule="evenodd" />
+                  </svg>
+                  Inventario Corretjer
+                </h2>
+                <nav>
+                  
+                  <ul class="mt-8 space-y-4">
+                    <li>
+                      <button id="home" class="block py-2 px-3 bg-orange-700 rounded w-full flex ">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 ">
+                          <path fill-rule="evenodd" d="M9.293 2.293a1 1 0 0 1 1.414 0l7 7A1 1 0 0 1 17 11h-1v6a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-6H3a1 1 0 0 1-.707-1.707l7-7Z" clip-rule="evenodd" />
+                        </svg>
+                        
+                        Pagina Principal
+                      </button>
+                    </li>
+                    <li>
+                      <button id="inventoryVisualization" class="block py-2 px-3 bg-gray-600 rounded w-full flex">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                          <path fill-rule="evenodd" d="M9 3.5a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11ZM2 9a7 7 0 1 1 12.452 4.391l3.328 3.329a.75.75 0 1 1-1.06 1.06l-3.329-3.328A7 7 0 0 1 2 9Z" clip-rule="evenodd" />
+                        </svg>
+                        Navegar Inventario
+                      </button>
+                    </li>
+                    <li>
+                      <button id="inventoryAdd" class="block py-2 px-3 bg-gray-600 rounded w-full flex">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                          <path fill-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm.75-11.25a.75.75 0 0 0-1.5 0v2.5h-2.5a.75.75 0 0 0 0 1.5h2.5v2.5a.75.75 0 0 0 1.5 0v-2.5h2.5a.75.75 0 0 0 0-1.5h-2.5v-2.5Z" clip-rule="evenodd" />
+                        </svg>                        
+                        Agregar al inventario
+                      </button>
+                    </li>
+                  </ul>
+                </nav>
+            </aside>
 
-                </ul>
-              </nav>
-          </aside>
-
-          <main class="bg-white p-6 flex-1 min-h-0 overflow-auto">
-            <h2>
-              Main Page
-            </h2>
-          </main>
-
+            <main class="bg-white p-6 flex-1 min-h-0 overflow-auto">
+              <h2>
+                Main Page
+              </h2>
+            </main>
           </div>
           <script src="../renderer/appInit.js"></script>
           <script src="../renderer/navegation/navigationRenderer.js"></script>

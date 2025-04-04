@@ -6,7 +6,11 @@ window.addEventListener('DOMContentLoaded', async () => {
     //   window.api.store.refreshCategories(),
     //   window.api.store.refreshBooks()
     ]);
-  
+    
+    let autores =  window.api.store.getAuthors()
+       
     console.log('AppInit: cache is ready');
+    console.log('Autores:', autores);
+
   });
   
