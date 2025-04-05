@@ -22,13 +22,14 @@ categoriaForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     
     const nombre = categoriaForm.nombre.value.trim();
+    console.log("Category name value: ", nombre)
 
     try {
         const result = await window.api.db.createCategorias({
             nombre
         });
 
-        console.log(result); // Maybe show a success toast here
+        console.log(result); 
 
         categoriaForm.reset();
         categoriaModal.classList.add("hidden");

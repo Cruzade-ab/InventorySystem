@@ -16,8 +16,8 @@ contextBridge.exposeInMainWorld('api', {
     getCategorias: () => ipcRenderer.invoke('get-categorias'),
     getTipoObras: () => ipcRenderer.invoke('get-tipo-obra'),
     createAuthor: (authorData) => ipcRenderer.invoke('create-author', authorData),
-    createCategorias: (obrasData) => ipcRenderer.invoke('get-categorias', obrasData),
-    createTipoObras: (tipoObras) => ipcRenderer.invoke('get-tipo-obra', tipoObras),
+    createCategorias: (categoryData) => ipcRenderer.invoke('create-categoria', categoryData),
+    createTipoObras: (tipoObras) => ipcRenderer.invoke('create-tipo-obra', tipoObras),
   },
 
   store: {
@@ -59,12 +59,12 @@ contextBridge.exposeInMainWorld('api', {
     clearSelectedAuthors: () => dataStore.clearSelectedAuthors(),
     // Selected Categorias
     getSelectedCategorias: () => dataStore.getSelectedCategorias(),
-    setSelectedCategorias: (authors) => dataStore.setSelectedCategorias(Categorias),
+    setSelectedCategorias: (categorias) => dataStore.setSelectedCategorias(categorias),
     clearSelectedCategorias: () => dataStore.clearSelectedCategorias(),
-    // Selected Authors
-    getSelectedAuthors: () => dataStore.getSelectedAuthors(),
-    setSelectedAuthors: (authors) => dataStore.setSelectedAuthors(authors),
-    clearSelectedAuthors: () => dataStore.clearSelectedAuthors(),
+    // Selected TipoObra
+    getSelectedTipoObras: () => dataStore.getSelectedTipoObra(),
+    setSelectedTipoObras: (tipoObra) => dataStore.setSelectedTipoObra(tipoObra),
+    clearSelectedTipoObras: () => dataStore.clearSelectedTipoObra(),
 
   }
 });
