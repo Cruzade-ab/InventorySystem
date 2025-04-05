@@ -1,6 +1,7 @@
 const { app, BrowserWindow, ipcMain } = require("electron");
 const path = require('path');
 const { getAutores , createAuthor} = require('../src/DB/autors');
+const { getCategorias, createCategoria, getTiposObra, createTipoObra } = require('..//src/DB/categoria');
 
 let window; 
 
@@ -49,8 +50,8 @@ ipcMain.on('navigate-to-inventory-visualization', () => {
 });
 
 
-//## DB Autor Handles
-
+// <> -DB Handles- <>
+// Autores
 ipcMain.handle('get-autores', async () => {
   console.log('Fetching authors from database...');
   try {
@@ -63,7 +64,6 @@ ipcMain.handle('get-autores', async () => {
   }
 });
 
-
 ipcMain.handle('create-author', async (event, authorData) => {
   try {
       const savedAuthor = await createAuthor(authorData);
@@ -73,4 +73,47 @@ ipcMain.handle('create-author', async (event, authorData) => {
   }
 });
 
+// Obra/ TIpo Obra
 
+
+ipcMain.handle('get-categorias', async () => {
+  console.log('Fetching categories from database...');
+  try {
+    const rows = await getCategorias(); 
+    console.log('Fetched categories:', rows);
+    return { success: true, data: rows };
+  } catch (err) {
+    console.error('Error fetching categories:', err);
+    return { success: false, message: err.message };
+  }
+});
+
+ipcMain.handle('create-categoria', async (event, categoryData) => {
+  try {
+      const savedCategory = await createCategoria(categoryData);
+      return { success: true, data: savedCategory };
+  } catch (err) {
+      return { success: false, message: err.message };
+  }
+});
+
+ipcMain.handle('get-tipo-obra', async () => {
+  console.log('Fetching Tipos Obra from database...');
+  try {
+    const rows = await getTiposObra(); 
+    console.log('Fetched Tipo Obras:', rows);
+    return { success: true, data: rows };
+  } catch (err) {
+    console.error('Error fetching tipoObra:', err);
+    return { success: false, message: err.message };
+  }
+});
+
+ipcMain.handle('create-tipo-obra', async (event, tipoObraData) => {
+  try {
+      const savedTipoObraData = await createTipoObra(tipoObraData);
+      return { success: true, data: savedTipoObraData };
+  } catch (err) {
+      return { success: false, message: err.message };
+  }
+});

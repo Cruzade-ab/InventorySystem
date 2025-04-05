@@ -115,23 +115,44 @@
               <div id="authorsList" class="h-full flex overflow-y-auto items-center space-x-2 px-2">
               </div>
             </div>
-
-
-
             <div class="mt-4">
               <h3 class="font-semibold text-lg mb-2">Autor/res seleccionado/s para el libro</h3>
               <div id="selectedAuthorsList" class="flex flex-wrap gap-2">
                 <!-- Tags will be inserted here -->
               </div>
             </div>
-
-
-
-
           </div>
-          <div class="flex-1">
 
+
+          <div class="flex-1 flex">
+            <div class="">
+              <h2>
+                Categorias
+              </h2>
+              <button id="openCategoriaModalBtn" class="bg-blue-600 px-4 py-2 rounded">
+                Crear Categoria
+              </button>
+              <div class="w-full h-72 border-t mt-4">
+                <div id="categoriasList" class="h-full flex overflow-y-auto items-center space-x-2 px-2">
+                </div>
+              </div>
+            </div>
+
+            <div class="">
+              <h2>
+                Tipos Obra
+              </h2>
+              <button id="openTipoObraModalBtn" class="bg-blue-600 px-4 py-2 rounded">
+                Crear Tipo Obra
+              </button>
+              <div class="w-full h-72 border-t mt-4">
+                <div id="tipoObrasList" class="h-full flex overflow-y-auto items-center space-x-2 px-2">
+                </div>
+              </div>
+            </div>
           </div>
+
+
           <div class="flex-1">
 
           </div>
@@ -188,6 +209,47 @@
         </div>
       </div>
 
+
+
+      <!-- Tipo Cateoria -->
+      <div id="categoriaModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg p-6 w-full max-w-md relative">
+          <button id="closeCategoriaModalBtn"
+            class="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-xl font-bold"> Cerrar</button>
+          <h2 class="text-xl font-semibold mb-4"> </h2>
+          <form id="categoriaForm" class="space-y-4">
+            <div>
+              <label for="nombre" class="block text-sm font-medium">Categoria: </label>
+              <input type="text" placeholder="Nombre" name="nombre"
+                class="w-full border border-gray-300 rounded px-3 py-2 mt-1">
+            </div>
+            <div class="flex justify-end">
+              <button type="submit" class="bg-green-600 px-4 py-2 rounded">Enviar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+
+      <!-- Tipo Obra -->
+      <div id="tipoObraModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg p-6 w-full max-w-md relative">
+          <button id="closeTipoObraModalBtn"
+            class="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-xl font-bold"> Cerrar</button>
+          <h2 class="text-xl font-semibold mb-4"> </h2>
+          <form id="tipoObraForm" class="space-y-4">
+            <div>
+              <label for="nombre" class="block text-sm font-medium">Tipo Obra: </label>
+              <input type="text" placeholder="Nombre" name="nombre"
+                class="w-full border border-gray-300 rounded px-3 py-2 mt-1">
+            </div>
+            <div class="flex justify-end">
+              <button type="submit" class="bg-green-600 px-4 py-2 rounded">Enviar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
     </main>
 
   </div>
@@ -197,7 +259,10 @@
   <script src="../renderer/navegation/navigationRenderer.js"></script>
   <script src="../renderer/navegation/sectionControllers/inventoryManagementSections.js"></script>
   <script src="../renderer//addInventory/searchDisplayAuthors.js"></script>
+  <script src="../renderer//addInventory/displayCategoriasTipoObras.js"></script>
   <script src="../renderer//addInventory/autorModal.js"></script>
+  <script src="../renderer//addInventory/categoryModal.js"></script>
+  <script src="../renderer//addInventory/tipoObraModal.js"></script>
 </body>
 
 </html>

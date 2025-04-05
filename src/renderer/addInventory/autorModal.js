@@ -27,7 +27,7 @@ autorForm.addEventListener('submit', async (e) => {
     const fallecimiento = autorForm.fallecimiento.value.trim();
 
     try {
-        const result = await window.api.createAuthor({
+        const result = await window.api.db.createAuthor({
             nombre,
             nacionalidad,
             natalicio,
